@@ -25,9 +25,7 @@ export default function Page() {
 
     return (
         <div>
-        <Link href={'/home/2'}>Home/2</Link>
-        <Link href={'/home'}>Home</Link>
-        <Link href={'/products'}>Home</Link>
+        
 
         <Typography sx={{position:'sticky',top:0,background:'white'}} variant='h3'>All Products</Typography>
         <hr/>

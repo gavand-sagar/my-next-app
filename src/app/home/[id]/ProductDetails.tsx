@@ -36,11 +36,8 @@ export default function ProductDetails({params}:any) {
       <br/>
       <br/>
       <form onSubmit={handleSubmit(mySubmit)}>
-          <TextField label="Price" {...register('model')}/>
-          <Button type='submit' variant='contained'>{params?.id?"Update":"Save"}</Button>
-          <br/>
-          <br/>
-          <br/>
+          {/* <TextField label="Price" {...register('model')}/> */}
+          <Button type='submit' variant='contained'>{"Increment"}</Button>          
           <Button type='button' onClick={handlePurge} variant='contained'>PURGE</Button>
       </form>      
     </Paper>
