@@ -12,8 +12,9 @@ type MyResponse = {
 }
 
 export default function Page() {
+
     const[products,setProducts] = useState<Product[]>([]);
-    useEffect(() => {        
+    useEffect(() => {  
         axiosInstance.get<MyResponse>("/products?limit=20")
         .then(response=>{
             setProducts(response.data.products)

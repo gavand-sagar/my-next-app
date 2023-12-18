@@ -1,14 +1,26 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { Product } from './../app/products/product.type';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from './store'
+import { axiosInstance } from '@/services/axiosService'
 
 export interface CounterState {
-  value: number
+  value: number,
+  isLoading:boolean,
+  products: any[]
 }
 
 const initialState: CounterState = {
   value: 0,
+  products: [],
+  isLoading:false
 }
+
+
+
+export const getAllProducts = createAsyncThunk("getAllProducts", () => {
+  return axiosInstance.get('/product')
+})
 
 export const counterSlice = createSlice({
   name: 'counter',
@@ -22,12 +34,24 @@ export const counterSlice = createSlice({
       state.value += 1;
     },
     decrement: (state) => {
-      state.value -= 1
+      state.value -= 1;
     },
     incrementByAmount: (state, action: PayloadAction<number>) => {
       state.value += action.payload
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(getAllProducts.pending, (state, action) => {
+      state.isLoading = true;
+    })
+    builder.addCase(getAllProducts.rejected, (state, action) => {
+      state.isLoading = false;
+    })
+    builder.addCase(getAllProducts.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.products = action.payload.data.products
+    })
+  }
 })
 
 // Action creators are generated for each case reducer function

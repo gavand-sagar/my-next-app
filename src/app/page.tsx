@@ -1,29 +1,27 @@
 "use client"
-import { useEffect, useState } from 'react'
-import styles from './page.module.css'
-import Cookies from 'js-cookie'
-import { useRouter } from 'next/navigation'
-import { Typography } from '@mui/material'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { RootState } from '@/data/store'
+import { getAllProducts } from '@/data/authSlice'
+
+
 export default function Home() {
 
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const router = useRouter();
+  const dispatch = useDispatch();
+  const products = useSelector((state: RootState) => state.counter.products)
+  const isProductLoading = useSelector((state: RootState) => state.counter.isLoading)
+
   useEffect(() => {
-    setTimeout(()=>{
-      if (Cookies.get('isAuthenticated')) {
-        setIsAuthenticated(true)
-        router.push('/home')
-      }else{
-        router.push('/login')
-      }
-    },3000)
+    dispatch(getAllProducts())
   }, [])
 
   return (
-    <main className={styles.main}>
+    <main>
 
       {
-        isAuthenticated || <Typography variant='h1'>Authenticating</Typography>
+        isProductLoading? <>LOADING........</>
+        :
+        products.map(x => <div key={x.id}>{x.title}</div>)
       }
 
     </main>
