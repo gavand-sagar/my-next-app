@@ -16,7 +16,7 @@ export default function RootLayout({
       <head>
       </head>
       <body className={inter.className}>
-        <MainHoc>{children}</MainHoc>
+        <Provider store={store}>{children}</Provider>
       </body>
     </html>
   )

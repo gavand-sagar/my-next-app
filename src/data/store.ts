@@ -12,7 +12,7 @@ const persistedReducer = persistReducer(persistConfig, counterSlice.reducer);
 
 export const store = configureStore({
   reducer: {
-    counter: persistedReducer,
+    counter: counterSlice.reducer,
   },
   devTools: true,
   middleware: getDefaultMiddleware =>
