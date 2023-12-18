@@ -6,20 +6,25 @@ import { axiosInstance } from '@/services/axiosService'
 
 export interface CounterState {
   value: number,
-  isLoading:boolean,
+  isLoading: boolean,
   products: any[]
 }
 
 const initialState: CounterState = {
   value: 0,
   products: [],
-  isLoading:false
+  isLoading: false
 }
 
 
 
 export const getAllProducts = createAsyncThunk("getAllProducts", () => {
-  return axiosInstance.get('/product')
+  return new Promise((res, rej) => {
+    setTimeout(async () => {
+      res(await axiosInstance.get('/product'))
+    }, 2000);
+  })
+  //return axiosInstance.get('/product')
 })
 
 export const counterSlice = createSlice({

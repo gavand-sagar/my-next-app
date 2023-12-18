@@ -1,13 +1,12 @@
 "use client"
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { RootState } from '@/data/store'
+import { RootState, AppDispatch } from '@/data/store'
 import { getAllProducts } from '@/data/authSlice'
-
-
+import ProductItem from './products/ProductItem'
 export default function Home() {
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const products = useSelector((state: RootState) => state.counter.products)
   const isProductLoading = useSelector((state: RootState) => state.counter.isLoading)
 
@@ -17,11 +16,10 @@ export default function Home() {
 
   return (
     <main>
-
       {
-        isProductLoading? <>LOADING........</>
-        :
-        products.map(x => <div key={x.id}>{x.title}</div>)
+        isProductLoading ? <img src='./ruko.jpeg'/>
+          :
+          products.map(x => <ProductItem key={x.id} product={x}></ProductItem>)
       }
 
     </main>

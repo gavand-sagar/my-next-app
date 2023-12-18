@@ -6,6 +6,7 @@ import { Product } from './product.type';
 import { Typography } from '@mui/material';
 import { axiosInstance } from '@/services/axiosService';
 import Link from 'next/link';
+import Panel from './Panel';
 
 type MyResponse = {
     products:Product[]
@@ -27,7 +28,9 @@ export default function Page() {
     return (
         <div>
         
+        <Counter max={5}/>
 
+        <Panel message1={""} message2={""} />
         <Typography sx={{position:'sticky',top:0,background:'white'}} variant='h3'>All Products</Typography>
         <hr/>
         {
