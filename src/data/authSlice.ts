@@ -54,7 +54,8 @@ export const counterSlice = createSlice({
     })
     builder.addCase(getAllProducts.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.products = action.payload.data.products
+      let data = action.payload as any
+      state.products = data.data.products
     })
   }
 })
