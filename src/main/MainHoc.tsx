@@ -16,12 +16,12 @@ export default function MainHoc({ children }: { children: React.ReactNode }) {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <ThemeToggler isDarkMode={theme} setIsDarkMode={setTheme} />
-          <ThemeProvider theme={theme ? lightTheme : darkTheme}>
-            <BasicNavBar />
-            <Paper>
-              {children}
-            </Paper>
-          </ThemeProvider>
+            <ThemeProvider theme={theme ? lightTheme : darkTheme}>
+              <BasicNavBar />
+                <Paper>
+                  {children}
+                </Paper>
+            </ThemeProvider>
         </PersistGate>
       </Provider>
     </>

@@ -13,7 +13,7 @@ export default function Page() {
 
   return (
     <div>
-      <button onClick={handleClick}>Login</button>
+      <button onClick={handleClick}>LOGIN</button>
     </div>
   )
 }
