@@ -3,8 +3,8 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import ProductItem from './ProductItem';
 import { Product } from './product.type';
-import { Typography } from '@mui/material';
-import { DataGrid } from '@mui/x-data-grid';
+import { Rating, Typography } from '@mui/material';
+import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { axiosInstance } from '@/services/axiosService';
 import Panel from './Panel';
 import Link from 'next/link';
@@ -26,15 +26,19 @@ export default function Page() {
             })
     }, [])
 
-    const columns = [
+    const columns: GridColDef<Product>[] = [
         { field: 'id', headerName: 'ID', width: 70 },
         { field: 'title', headerName: 'Title', width: 130 },
         { field: 'brand', headerName: 'Brand', width: 130 },
         {
-            field: 'price',
-            headerName: 'Price',
+            field: 'rating',
+            headerName: 'Rating',
             type: 'number',
-            width: 90,
+            width: 190,
+            align: 'center',
+            renderCell: (params) => {
+                return <Rating readOnly value={params.row.rating}></Rating>
+            },
         }
     ];
 
