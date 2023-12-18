@@ -3,7 +3,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import ProductItem from './ProductItem';
 import { Product } from './product.type';
-import { Rating, Typography } from '@mui/material';
+import { Button, Rating, Typography } from '@mui/material';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { axiosInstance } from '@/services/axiosService';
 import Panel from './Panel';
@@ -15,6 +15,7 @@ type MyResponse = {
 }
 
 export default function Page() {
+    const router = useRouter()
     const [products, setProducts] = useState<Product[]>([]);
     useEffect(() => {
         axiosInstance.get<MyResponse>("/products?limit=20")
@@ -38,6 +39,16 @@ export default function Page() {
             align: 'center',
             renderCell: (params) => {
                 return <Rating readOnly value={params.row.rating}></Rating>
+            },
+        },
+        {
+            field: '',
+            headerName: 'EDIT',
+            type: 'number',
+            width: 190,
+            align: 'center',
+            renderCell: (params) => {
+                return <Button variant='contained' color='secondary' onClick={() => router.push('/products/' + params.row.id)}>EDIT</Button>
             },
         }
     ];
