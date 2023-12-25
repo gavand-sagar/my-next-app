@@ -15,10 +15,10 @@ export default function MainHoc({ children }: { children: React.ReactNode }) {
     <>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <ThemeToggler isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
           <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
             <BasicNavBar />
-            <Paper>
+            <Paper sx={{ position: "fixed", top: 0, bottom: 0, left: 0, right: 0 }}>
+              <ThemeToggler isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
               {children}
             </Paper>
           </ThemeProvider>

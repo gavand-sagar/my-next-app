@@ -1,12 +1,9 @@
 "use client"
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import ProductItem from './ProductItem';
 import { Product } from './product.type';
 import { Button, Rating, Typography } from '@mui/material';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { axiosInstance } from '@/services/axiosService';
-import Panel from './Panel';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -54,8 +51,7 @@ export default function Page() {
 
     return (
         <div>
-            <Link href='/orders'>ORDES</Link>
-            <Panel message1={""} message2={""} />
+            <Link href='/orders'>ORDES</Link>            
             <Typography sx={{ position: 'sticky', top: 0 }} variant='h3'>All Products</Typography>
             <hr />
             {

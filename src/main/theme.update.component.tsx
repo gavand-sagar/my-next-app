@@ -2,6 +2,7 @@ import React from "react";
 import { MaterialUISwitch } from "@/styles/MUI/theme-switch";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import { Paper } from "@mui/material";
 
 interface IThemeTogglerProps {
 	isDarkMode: boolean;
@@ -17,7 +18,7 @@ const ThemeToggler: React.FC<IThemeTogglerProps> = ({
 	};
 
 	return (
-		<div style={{ display: "flex", justifyContent: "flex-end" }}>
+		<Paper style={{ display: "flex", justifyContent: "flex-end" }}>
 			<FormGroup>
 				<FormControlLabel
 					control={
@@ -30,7 +31,7 @@ const ThemeToggler: React.FC<IThemeTogglerProps> = ({
 					label="Change Mode"
 				/>
 			</FormGroup>
-		</div>
+		</Paper>
 	);
 };
 
