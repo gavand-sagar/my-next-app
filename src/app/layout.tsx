@@ -16,14 +16,14 @@ export default function RootLayout({
       <head>
       </head>
       <body className={inter.className}>
-        {/* <Provider store={store}>
+        <Provider store={store}>
           {children}
-        </Provider> */}
-        <MainHoc >
+        </Provider>
+        {/* <MainHoc >
           {
             children
           }
-        </MainHoc>
+        </MainHoc> */}
       </body>
     </html>
   )
