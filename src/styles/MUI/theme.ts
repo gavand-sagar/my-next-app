@@ -5,7 +5,7 @@ export const lightTheme = createTheme({
 	palette: {
 		mode: "light",
 		background: {
-			default: "white",
+			default: "#fff",
 		},
 		primary: {
 			main: "#1976D2",
@@ -18,7 +18,7 @@ export const lightTheme = createTheme({
 		MuiButton: {
 			styleOverrides: {
 				root: {
-					color: "white",
+					color: "#fff",
 					backgroundColor: "#1976D2",
 					"&:hover": {
 						backgroundColor: "#135ca3",
@@ -29,10 +29,10 @@ export const lightTheme = createTheme({
 		MuiTable: {
 			styleOverrides: {
 				root: {
-					color: "black",
-					backgroundColor: "white",
+					color: "#000",
+					backgroundColor: "#fff",
 					"&:hover": {
-						backgroundColor: "white",
+						backgroundColor: "#fff",
 					},
 				},
 			},
@@ -40,8 +40,8 @@ export const lightTheme = createTheme({
 		MuiContainer: {
 			styleOverrides: {
 				root: {
-					color: "black",
-					backgroundColor: "white",
+					color: "#000",
+					backgroundColor: "#fff",
 				},
 			},
 		},
@@ -53,7 +53,7 @@ export const darkTheme = createTheme({
 	palette: {
 		mode: "dark",
 		background: {
-			default: "black",
+			default: "#000",
 		},
 		primary: {
 			main: "#90caf9",
@@ -66,7 +66,7 @@ export const darkTheme = createTheme({
 		MuiButton: {
 			styleOverrides: {
 				root: {
-					color: "white",
+					color: "#fff",
 					backgroundColor: "#90caf9",
 					"&:hover": {
 						backgroundColor: "#6b9bc2",
@@ -77,7 +77,7 @@ export const darkTheme = createTheme({
 		MuiTable: {
 			styleOverrides: {
 				root: {
-					color: "white",
+					color: "#fff",
 					backgroundColor: "#211f1f",
 					"&:hover": {
 						backgroundColor: "#211f1f",
@@ -88,8 +88,8 @@ export const darkTheme = createTheme({
 		MuiContainer: {
 			styleOverrides: {
 				root: {
-					color: "white",
-					backgroundColor: "black",
+					color: "#fff",
+					backgroundColor: "#000",
 				},
 			},
 		},

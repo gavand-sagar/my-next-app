@@ -1,3 +1,4 @@
+"use client"
 import { Container, Grid, ImageListItem, Paper, Typography, colors } from '@mui/material'
 import React from 'react'
 import { Product } from './product.type'
