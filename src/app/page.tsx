@@ -12,6 +12,8 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getAllProducts())
+    // throw "something went wrong"
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

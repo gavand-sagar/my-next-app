@@ -1,14 +1,10 @@
+"use client"
 import React from 'react'
-import { Product } from './product.type'
-interface propType{
-    message1:string;
-    message2:string;
-}
-export default function Panel(props: propType) {
+export default function Panel() {
     return (
         <div>
-            <div>Panel{props.message1}</div>
-            <div>Panel{props.message2}</div>
+           {}
         </div>
     )
 }
+

@@ -15,10 +15,9 @@ type MyResponse = {
 }
 
 export default function Page() {
-    const router = useRouter()
+    const router = useRouter();
     const [products, setProducts] = useState<Product[]>([]);
-    useEffect(() => {
-        axiosInstance.get<MyResponse>("/products?limit=20")
+    useEffect(() => { axiosInstance.get<MyResponse>("/products?limit=20")
             .then(response => {
                 setProducts(response.data.products)
             })
